@@ -71,6 +71,7 @@ body {
     justify-content: center;
     background-color: #fff;
     margin-top: 48px;
+    cursor: pointer;
 }
 
 .sheet___btn {
@@ -88,4 +89,19 @@ body {
     font-size: 24px;
     line-height: 32px;
     font-feature-settings: 'pnum' on, 'lnum' on;
+    cursor: pointer;
+}
+
+.warning {
+    color: rgb(255, 0, 234);
+    font-family: 'StratosSkyeng';
+    font-size: 20px;
+}
+
+.game-sheet {
+    width: 480px;
+    height: 459px;
+    left: 272px;
+    top: 158px;
+    background: #e9ecec;
 }
