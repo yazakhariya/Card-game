@@ -35,16 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function gamePage() {
         
-        if (!chosenLevel) {
-            errorMessage();
-        } else if (chosenLevel === '1') {
-            showingLevelPages(6);
-        } else if (chosenLevel === '2') {
-            showingLevelPages(12);
-        } else {
-            showingLevelPages(18);
-        } 
-
+        switch(chosenLevel) {
+            case '1':
+                showingLevelPages(6);
+                break;
+            case '2':
+                showingLevelPages(12);
+                break;
+            case '3':
+                showingLevelPages(18);
+                break;
+            default:
+                errorMessage();
+                break;
+        }
     }
    
     startButton.addEventListener('click', gamePage);
