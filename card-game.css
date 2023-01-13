@@ -93,9 +93,9 @@ body {
 }
 
 .warning {
-    color: rgb(255, 0, 234);
+    color: rgb(255, 0, 64);
     font-family: 'StratosSkyeng';
-    font-size: 20px;
+    font-size: 13px;
 }
 
 .game-sheet {
