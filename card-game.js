@@ -2,15 +2,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const startButton = document.querySelector(".sheet___btn");
     const levelBoxes = document.querySelectorAll('.blocks__choice-box');
-    const heading = document.querySelector('.sheet___heading');
     const gameSheet = document.createElement('div');
     gameSheet.classList.add('game-sheet');
     let chosenLevel;
 
     function choosingLevelBox (event) {
         chosenLevel = event.target.innerHTML;
-
+        event.target.classList.add('chosen-level');
         localStorage.setItem(".blocks__choice-box", chosenLevel);
+        
+        for (let i = 0; i < levelBoxes.length; i++) {
+            levelBoxes[i].addEventListener("click", function () {
+          
+                levelBoxes.forEach(box=> box.classList.remove("chosen-level"))
+          
+                levelBoxes[i].classList.add("chosen-level");
+            });
+        }
     };
     
 
