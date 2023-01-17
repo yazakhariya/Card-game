@@ -105,3 +105,8 @@ body {
     top: 158px;
     background: #e9ecec;
 }
+
+.chosen-level {
+    background-color: #0080C1;
+    color: #ffffff;
+}
