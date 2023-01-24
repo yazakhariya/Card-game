@@ -1,0 +1,33 @@
+{
+  "name": "0003",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 3004"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazakhariya/tools-2023.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yazakhariya/tools-2023/issues"
+  },
+  "homepage": "https://github.com/yazakhariya/tools-2023#readme",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "https-server": "^0.1.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "axios": "^1.2.2",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3"
+  }
+}
