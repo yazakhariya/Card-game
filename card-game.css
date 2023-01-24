@@ -110,3 +110,87 @@ body {
     background-color: #0080C1;
     color: #ffffff;
 }
+
+.cards-sheet {
+    height: 482px;
+    margin-left: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.card {
+    width: 95px;
+    height: 133px;
+}
+
+.front-side {
+    height: 100%;
+    height: 133px;
+    width: 95px;
+}
+
+.back-side {
+    background-image: url(img/shirt.svg);
+    height: 100%;
+    height: 133px;
+    width: 95px;
+}
+
+.generalContainerForTheGame {
+    display: flex;
+    flex-direction: column;
+    margin-left: 22px;
+    margin-right: 22px;
+}
+
+.timer {
+    font-family: 'StratosSkyeng';
+    color: #ffffff;
+    width: 155px;
+    height: 72px;
+    left: 22px;
+    top: 41px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+}
+
+.timers-names {
+    font-family: 'StratosSkyeng';
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    font-feature-settings: 'pnum';
+    height: 20px;
+}
+
+.startNewGameButton {
+    width: 246px;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #FFFFFF;
+    height: 50px;
+    background: #7AC100;
+    border-radius: 12px;
+    border: #7AC100;
+}
+
+.timer_btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timerMinSec {
+    display: flex;
+    justify-content: flex-end;
+    gap: 57px;
+    align-items: flex-end;
+}
