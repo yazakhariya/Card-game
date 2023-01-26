@@ -1,0 +1,39 @@
+{
+  "name": "hw2.0",
+  "version": "1.0.0",
+  "description": " ",
+  "main": "card-game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write card-game.js",
+    "lint:js": "eslint card-game.js",
+    "lint:css": "stylelint card-game.css",
+    "lint": "npm run lint:js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazakhariya/Card-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yazakhariya/Card-game/issues"
+  },
+  "homepage": "https://github.com/yazakhariya/Card-game#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.3",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-prettier": "^2.0.0"
+  }
+}
