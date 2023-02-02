@@ -1,7 +1,6 @@
-import {cards} from './cards-data';
-import {templateEngine} from './templateEngine';
-import './card-game.css';
-
+//import {cards} from './cards-data.js';
+//import {templateEngine} from './templateEngine';
+//import './card-game.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
@@ -83,13 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showingAndHidingCards() {
     setTimeout(() => {
-      const frontCardSide = document.querySelectorAll('.card__item-front');
       const backCardSide = document.querySelectorAll('.card__item-back');
-
-      frontCardSide.forEach((card) => {
-        card.classList.add('card__item_hidden');
-      });
-
       backCardSide.forEach((card) => {
         card.classList.remove('card__item_hidden');
       });
@@ -119,6 +112,51 @@ document.addEventListener('DOMContentLoaded', () => {
     copiedCardsRow = shuffleCards(copiedCardsRow);
 
     allCardsContainer.appendChild(templateEngine(copiedCardsRow));
+
+    //основная логика игры
+    let cardsToWin = 0;
+
+    function winLosePage() {
+      if (cardsToWin === amount * 2) {
+        alert('Вы победили!');
+      } else {
+        console.log('con');
+      }
+    }
+
+    const everyCard = document.querySelectorAll('.card__item-back');
+    let flippedCardsArray = [];
+
+    function flippingCards(event) {
+      let card = event.target;
+      flippedCardsArray.push(card);
+
+      card.style.transform = 'rotatey(180deg)';
+      card.style.transitionDuration = '1.5s';
+
+      compareCards(flippedCardsArray);
+      winLosePage();
+    }
+
+    function compareCards(array) {
+      if (array.length === 2) {
+        const unflippedCardOne = array[0].attributes[3].value;
+        const unflippedCardTwo = array[1].attributes[3].value;
+
+        if (unflippedCardOne !== unflippedCardTwo) {
+          setTimeout(() => {
+            array.forEach((element) => element.removeAttribute('style'));
+            flippedCardsArray = [];
+            cardsToWin = 0;
+          }, 1000);
+        } else {
+          flippedCardsArray = [];
+          cardsToWin += 2;
+        }
+      }
+    }
+
+    everyCard.forEach((elem) => elem.addEventListener('click', flippingCards));
   }
 
   function errorMessage() {
