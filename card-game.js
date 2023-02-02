@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     allCardsContainer.appendChild(templateEngine(copiedCardsRow));
 
     //основная логика игры
+
     let cardsToWin = 0;
 
     function winLosePage() {
