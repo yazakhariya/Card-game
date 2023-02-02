@@ -1,6 +1,6 @@
-//import {cards} from './cards-data.js';
-//import {templateEngine} from './templateEngine';
-//import './card-game.css';
+import {cards} from './cards-data.js';
+import {templateEngine} from './templateEngine';
+import './card-game.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;

@@ -1,5 +1,4 @@
-//export 
-const cards = [
+export const cards = [
     {
         tag: "div",
         cls: "card__item",
