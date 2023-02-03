@@ -28,7 +28,7 @@ module.exports = {
       patterns: [{ from: 'img', to: 'img' }],
     }),
     new HtmlWebpackPlugin({
-      filename: 'card-game.html',
+      filename: 'index.html',
       template: './card-game.html',
     }),
     new MiniCssExtractPlugin(),
@@ -40,5 +40,5 @@ module.exports = {
   },
   optimization: {
     minimizer: ['...', new CssMinimizerPlugin()],
-  }
+  },
 };

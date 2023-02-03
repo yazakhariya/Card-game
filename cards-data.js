@@ -18,6 +18,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "6C",
                 },
             },
         ],
@@ -41,6 +42,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "6D",
                 },
             },
         ],
@@ -64,6 +66,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "6H",
                 },
             },
         ],
@@ -87,6 +90,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "6S",
                 },
             },
         ],
@@ -110,6 +114,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "7C",
                 },
             },
         ],
@@ -133,6 +138,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "7D",
                 },
             },
         ],
@@ -156,6 +162,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "7H",
                 },
             },
         ],
@@ -179,6 +186,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "7S",
                 },
             },
         ],
@@ -202,6 +210,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "8C",
                 },
             },
         ],
@@ -225,6 +234,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "8D",
                 },
             },
         ],
@@ -248,6 +258,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "8H",
                 },
             },
         ],
@@ -271,6 +282,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "8S",
                 },
             },
         ],
@@ -294,6 +306,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "9C",
                 },
             },
         ],
@@ -317,6 +330,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "9D",
                 },
             },
         ],
@@ -340,6 +354,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "9H",
                 },
             },
         ],
@@ -363,6 +378,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "9S",
                 },
             },
         ],
@@ -386,6 +402,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "AC",
                 },
             },
         ],
@@ -409,6 +426,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "AD",
                 },
             },
         ],
@@ -432,6 +450,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "AH",
                 },
             },
         ],
@@ -455,6 +474,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "AS",
                 },
             },
         ],
@@ -478,6 +498,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "JC",
                 },
             },
         ],
@@ -501,6 +522,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "JD",
                 },
             },
         ],
@@ -524,6 +546,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "JH",
                 },
             },
         ],
@@ -547,6 +570,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "JS",
                 },
             },
         ],
@@ -570,6 +594,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "KC",
                 },
             },
         ],
@@ -593,6 +618,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "KD",
                 },
             },
         ],
@@ -616,6 +642,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "KH",
                 },
             },
         ],
@@ -639,6 +666,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "KS",
                 },
             },
         ],
@@ -662,6 +690,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "QC",
                 },
             },
         ],
@@ -685,6 +714,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "QD",
                 },
             },
         ],
@@ -708,6 +738,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "QH",
                 },
             },
         ],
@@ -731,6 +762,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "QS",
                 },
             },
         ],
@@ -754,6 +786,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "TC",
                 },
             },
         ],
@@ -777,6 +810,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "TD",
                 },
             },
         ],
@@ -800,6 +834,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "TH",
                 },
             },
         ],
@@ -823,6 +858,7 @@ export const cards = [
                 attrs: {
                     width: "95",
                     src: "img/shirt.svg",
+                    value: "TS",
                 },
             },
         ],
