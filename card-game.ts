@@ -1,4 +1,4 @@
-import { cards } from './cards-data.js';
+import { cards } from './cards-data';
 import { templateEngine } from './templateEngine';
 import './card-game.css';
 import * as _ from 'lodash';
@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const levelBoxes = document.querySelectorAll('.blocks__choice-box');
   const gameSheet = document.createElement('div');
   gameSheet.classList.add('game-sheet');
-  let chosenLevel;
-  let timerResult;
+  let chosenLevel: string;
+  let timerResult: number|string;
   const timerDigits = document.createElement('div');
   const generalDivForWrapperAndAllCardsContainer =
     document.createElement('div');
 
-  function choosingLevelBox(event) {
+  function choosingLevelBox(event: { target: { innerHTML: string; classList: { add: (arg0: string) => void; }; }; }) {
     chosenLevel = event.target.innerHTML;
     event.target.classList.add('chosen-level');
     localStorage.setItem('.blocks__choice-box', chosenLevel);
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-
-  levelBoxes.forEach((key) => key.addEventListener('click', choosingLevelBox));
+  
+  levelBoxes.forEach((key) => key.addEventListener<keyof ElementEventMap>('click', choosingLevelBox));
 
   function generatingCardsEngine() {
     body.innerHTML = '';
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //перемешивание
 
-  function shuffleCards(array) {
+  function shuffleCards(array: string|any[]) {
     for (let i = array.length - 1; i >= 0; i--) {
       let randomIndex = Math.floor(Math.random() * (i + 1));
       let itemAtIndex = array[randomIndex];
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //функция генерирования карт
 
-  function showCards(amount) {
+  function showCards(amount: number|undefined) {
     const allCardsContainer = document.createElement('section');
     if (amount === 3) {
       allCardsContainer.classList.add('cards-sheet');
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generalDivForWrapperAndAllCardsContainer.appendChild(allCardsContainer);
 
     showingAndHidingCards();
-
+    
     let originalCardsRow = cards;
     let copiedCardsRow = shuffleCards(originalCardsRow);
     copiedCardsRow = copiedCardsRow.slice(0, amount);
@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const everyCard = document.querySelectorAll('.card__item-back');
-    let flippedCardsArray = [];
+    let flippedCardsArray: any[] = [];
 
-    function flippingCards(event) {
+    function flippingCards(event: { target: any; }) {
       let card = event.target;
       flippedCardsArray.push(card);
 
@@ -149,9 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
       winLosePage();
     }
 
-    let unflippedCardOne, unflippedCardTwo;
+    let unflippedCardOne: any, unflippedCardTwo: any;
 
-    function compareCards(array) {
+    function compareCards(array: string|any[]) {
       if (array.length === 2) {
         unflippedCardOne = array[0].attributes[3].value;
         unflippedCardTwo = array[1].attributes[3].value;
@@ -170,9 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let minutes = 0;
     let seconds_string = '';
     let minutes_string = '';
-    let timeInterval;
+    let timeInterval: string | number | NodeJS.Timeout | undefined;
 
-    function startTimer(seconds, minutes) {
+    function startTimer(seconds: number, minutes: number) {
       timeInterval = setInterval(() => {
         seconds > 58 ? ((minutes += 1), (seconds = 0)) : (seconds += 1);
         seconds_string = seconds > 9 ? `${seconds}` : `0${seconds}`;
@@ -299,3 +299,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startButton.addEventListener('click', gamePage);
 });
+
+
