@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: './card-game.js',
+  entry: './card-game.ts',
   mode: isProduction ? 'production' : 'development',
   module: {
     rules: [

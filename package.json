@@ -2,7 +2,7 @@
   "name": "hw2.0",
   "version": "1.0.0",
   "description": " ",
-  "main": "card-game.js",
+  "main": "card-game.ts",
   "scripts": {
     "lint:ts": "tsc ––noEmit",
     "build": "cross-env NODE_ENV=production webpack",

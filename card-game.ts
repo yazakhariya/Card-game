@@ -1,6 +1,7 @@
 import { cards } from './cards-data';
 import { templateEngine } from './templateEngine';
 import './card-game.css';
+// eslint-disable-next-line no-unused-vars
 import * as _ from 'lodash';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,14 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameSheet = document.createElement('div');
   gameSheet.classList.add('game-sheet');
   let chosenLevel: string;
-  let timerResult: number|string;
+  let timerResult: number | string;
   const timerDigits = document.createElement('div');
   const generalDivForWrapperAndAllCardsContainer =
     document.createElement('div');
+  // eslint-disable-next-line no-undef
+  let timeInterval: string | number | NodeJS.Timeout | undefined;
 
-  function choosingLevelBox(event: { target: { innerHTML: string; classList: { add: (arg0: string) => void; }; }; }) {
-    chosenLevel = event.target.innerHTML;
-    event.target.classList.add('chosen-level');
+  // eslint-disable-next-line no-undef
+  function choosingLevelBox(event: Event) {
+    const target = event.target as HTMLDivElement;
+    chosenLevel = target.innerHTML;
+    target.classList.add('chosen-level');
     localStorage.setItem('.blocks__choice-box', chosenLevel);
 
     for (let i = 0; i < levelBoxes.length; i++) {
@@ -28,12 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-  
-  levelBoxes.forEach((key) => key.addEventListener<keyof ElementEventMap>('click', choosingLevelBox));
+
+  levelBoxes.forEach((key) => key.addEventListener('click', choosingLevelBox));
 
   function generatingCardsEngine() {
     body.innerHTML = '';
-
     generalDivForWrapperAndAllCardsContainer.classList.add(
       'generalContainerForTheGame'
     );
@@ -72,15 +76,34 @@ document.addEventListener('DOMContentLoaded', () => {
     startNewGameButton.innerHTML = 'Начать заново';
     wrapper.appendChild(startNewGameButton);
     startNewGameButton.addEventListener('click', () => {
+      clearInterval(timeInterval);
       (generalDivForWrapperAndAllCardsContainer.innerHTML = ''), gamePage();
     });
   }
 
   //перемешивание
 
-  function shuffleCards(array: string|any[]) {
+  function shuffleCards(
+    array: {
+      tag: string;
+      cls: string;
+      content: (
+        | {
+            tag: string;
+            cls: string;
+            attrs: { 'data-id': string; width: string; src: string };
+          }
+        | {
+            tag: string;
+            cls: string[];
+            attrs: { width: string; src: string; value: string };
+          }
+      )[];
+    }[]
+  ) {
     for (let i = array.length - 1; i >= 0; i--) {
-      let randomIndex = Math.floor(Math.random() * (i + 1));
+      let randomIndex: number;
+      randomIndex = Math.floor(Math.random() * (i + 1));
       let itemAtIndex = array[randomIndex];
       array[randomIndex] = array[i];
       array[i] = itemAtIndex;
@@ -99,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //функция генерирования карт
 
-  function showCards(amount: number|undefined) {
+  function showCards(amount: number | undefined) {
     const allCardsContainer = document.createElement('section');
     if (amount === 3) {
       allCardsContainer.classList.add('cards-sheet');
@@ -112,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     generalDivForWrapperAndAllCardsContainer.appendChild(allCardsContainer);
 
     showingAndHidingCards();
-    
+
     let originalCardsRow = cards;
     let copiedCardsRow = shuffleCards(originalCardsRow);
     copiedCardsRow = copiedCardsRow.slice(0, amount);
@@ -130,15 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           loosePage();
         }, 1500);
-      } else if (cardsToWin === amount * 2) {
+      } else if (amount && cardsToWin === amount * 2) {
         winPage();
       }
     }
 
     const everyCard = document.querySelectorAll('.card__item-back');
-    let flippedCardsArray: any[] = [];
+    let flippedCardsArray: string[];
 
-    function flippingCards(event: { target: any; }) {
+    function flippingCards(event: { target: any }) {
       let card = event.target;
       flippedCardsArray.push(card);
 
@@ -151,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let unflippedCardOne: any, unflippedCardTwo: any;
 
-    function compareCards(array: string|any[]) {
+    function compareCards(array: string | any[]) {
       if (array.length === 2) {
         unflippedCardOne = array[0].attributes[3].value;
         unflippedCardTwo = array[1].attributes[3].value;
@@ -170,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let minutes = 0;
     let seconds_string = '';
     let minutes_string = '';
-    let timeInterval: string | number | NodeJS.Timeout | undefined;
 
     function startTimer(seconds: number, minutes: number) {
       timeInterval = setInterval(() => {
@@ -178,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         seconds_string = seconds > 9 ? `${seconds}` : `0${seconds}`;
         minutes_string = minutes > 9 ? `${minutes}` : `0${minutes}`;
         timerDigits.innerHTML = `${minutes_string}.${seconds_string}`;
-        if (cardsToWin === amount * 2) {
+        if (amount && cardsToWin === amount * 2) {
           clearInterval(timeInterval);
         } else if (unflippedCardOne !== unflippedCardTwo) {
           clearInterval(timeInterval);
@@ -297,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  startButton.addEventListener('click', gamePage);
+  if (startButton) {
+    startButton.addEventListener('click', gamePage);
+  }
 });
-
-
