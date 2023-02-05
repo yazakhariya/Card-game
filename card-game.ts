@@ -159,10 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const everyCard = document.querySelectorAll('.card__item-back');
-    let flippedCardsArray: string[];
 
-    function flippingCards(event: { target: any }) {
-      let card = event.target;
+    
+    let flippedCardsArray: Array<any> = [];
+
+    function flippingCards(event: { target: any; }) {
+      let card = event.target; 
+    
       flippedCardsArray.push(card);
 
       card.style.transform = 'rotatey(180deg)';
@@ -172,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       winLosePage();
     }
 
-    let unflippedCardOne: any, unflippedCardTwo: any;
+    let unflippedCardOne: string[], unflippedCardTwo: string[];
 
     function compareCards(array: string | any[]) {
       if (array.length === 2) {
