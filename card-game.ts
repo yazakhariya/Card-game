@@ -163,10 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let flippedCardsArray: Array<string> = [];
 
-    function flippingCards(event: { target: any; }) {
-      let card = event.target; 
-    
-      flippedCardsArray.push(card);
+    function flippingCards(event: Event) {
+      let card = event.target as HTMLElement; 
+      
+      flippedCardsArray.push(card.attributes[3].value);
 
       card.style.transform = 'rotatey(180deg)';
       card.style.transitionDuration = '1.5s';
@@ -175,12 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
       winLosePage();
     }
 
-    let unflippedCardOne: string[], unflippedCardTwo: string[];
+    let unflippedCardOne: string, unflippedCardTwo: string;
 
-    function compareCards(array: string[] | any[]) {
+    function compareCards(array: string[]) {
       if (array.length === 2) {
-        unflippedCardOne = array[0].attributes[3].value;
-        unflippedCardTwo = array[1].attributes[3].value;
+        unflippedCardOne = array[0];
+        unflippedCardTwo = array[1];
 
         if (unflippedCardOne === unflippedCardTwo) {
           flippedCardsArray = [];
