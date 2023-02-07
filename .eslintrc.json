@@ -6,11 +6,10 @@
   },
   "extends": ["eslint:recommended", "prettier"],
   "plugins": ["prettier"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "rules": {
-    
-  }
+  "rules": {}
 }

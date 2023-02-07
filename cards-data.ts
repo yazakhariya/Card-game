@@ -1,4 +1,4 @@
-export const cards = [
+export const cards: { tag: string; cls: string; content: ({ tag: string; cls: string; attrs: { "data-id": string; width: string; src: string; }; } | { tag: string; cls: string[]; attrs: { width: string; src: string; value: string; }; })[]; }[] = [
     {
         tag: "div",
         cls: "card__item",

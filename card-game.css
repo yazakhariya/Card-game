@@ -118,6 +118,8 @@ body {
   grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
   gap: 24px;
+  width: 400px;
+  padding-left: calc(50% - 220px);
 }
 
 .cards-sheet_medium {
@@ -127,6 +129,8 @@ body {
   grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
   gap: 24px;
+  width: 480px;
+  padding-left: calc(50% - 260px);
 }
 
 .cards-sheet_hard {
@@ -136,6 +140,8 @@ body {
   grid-template-columns: repeat(6, 1fr);
   flex-wrap: wrap;
   gap: 24px;
+  width: 690px;
+  padding-left: calc(50% - 370px);
 }
 
 .card {
@@ -183,6 +189,7 @@ body {
   flex-direction: column;
   margin-left: 22px;
   margin-right: 22px;
+  width: 100%;
 }
 
 .timer {
@@ -234,4 +241,58 @@ body {
   justify-content: flex-end;
   gap: 57px;
   align-items: flex-end;
+}
+
+.background-for-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #004980;
+  opacity: 0.9;
+}
+
+.result-sheet {
+  width: 480px;
+  height: 459px;
+  background: #c2f5ff;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 10;
+  margin-left: calc(50% - 240px);
+  margin-bottom: calc(50% - 230px);
+  margin-top: calc(50% - 230px);
+  margin-right: calc(50% - 240px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.note {
+  font-family: StratosSkyeng;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #000;
+}
+
+.timeResult {
+  font-family: StratosSkyeng;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  color: #000;
 }
