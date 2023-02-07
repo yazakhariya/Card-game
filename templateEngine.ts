@@ -1,45 +1,66 @@
-
-type BlockType = Array | string | boolean | { tag: string; cls: string; content: ({ tag: string; cls: string; attrs: { 'data-id': string; width: string; src: string; }; } | { tag: string; cls: string[]; attrs: { width: string; src: string; value: string; }; })[]; }[] | null | undefined
-
-
-export function templateEngine(block: BlockType) {
-    if (block === undefined || block === null || block === false) {
-        return document.createTextNode('');
+export type Template =
+  | {
+      tag: string;
+      cls: string | string[];
+      attrs?: {
+        ['data-id']?: string;
+        width?: string;
+        src?: string;
+        value?: string;
+      };
+      content?: Template;
     }
-    if ((typeof block === 'string' || typeof block === 'number' || block === true) && (typeof block !== 'string') && (typeof block !== 'boolean')) {
-        return document.createTextNode(block);
+  | string
+  | boolean
+  | number
+  | Template[];
+
+export function templateEngine(block: Template) {
+  if (block === undefined || block === null || block === false) {
+    return document.createTextNode('');
+  }
+  if (
+    typeof block === 'string' ||
+    typeof block === 'number' ||
+    block === true
+  ) {
+    return document.createTextNode(String(block));
+  }
+  if (Array.isArray(block)) {
+    const fragment = document.createDocumentFragment();
+
+    block.forEach((item) => {
+      const el = templateEngine(item);
+
+      fragment.appendChild(el);
+    });
+
+    return fragment;
+  }
+
+  const element = document.createElement(block.tag);
+
+  if (block.cls) {
+    if (typeof block.cls === 'string') {
+      element.classList.add(block.cls);
+    } else {
+      element.classList.add(...block.cls);
     }
-    if (Array.isArray(block)) {
-        const fragment = document.createDocumentFragment();
-    
+  }
 
-        block.forEach(element => {
-            return fragment.appendChild(templateEngine(element));
-        });
+  if (block.attrs) {
+    const keys = Object.entries(block.attrs);
 
-        return fragment;
-    }
+    keys.forEach(([key, value]) => {
+      element.setAttribute(key, value);
+    });
+  }
 
-    const result = document.createElement(block.tag);
+  if (block.content) {
+    const content = templateEngine(block.content);
 
-    if ((block.cls) && (typeof block !== 'string')) {
-        const classes = [].concat(block.cls);
-        classes.forEach(cls => {
-            result.classList.add(cls);
-        });
-    }
+    element.appendChild(content);
+  }
 
-    if ((block.attrs) && (block.attrs !== 'string | true') && (block.attrs !== 'string')) {
-        const keys = Object.keys(block.attrs);
-
-        keys.forEach(key => {
-            result.setAttribute(key, block.attrs[key]);
-        });
-    }
-
-    result.appendChild(templateEngine(block.content));
-
-    return result;
+  return element;
 }
-
-
