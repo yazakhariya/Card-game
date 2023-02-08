@@ -1,5 +1,5 @@
 import { cards } from './cards-data';
-import { templateEngine } from './templateEngine';
+import { Template, templateEngine } from './templateEngine';
 import './card-game.css';
 // eslint-disable-next-line no-unused-vars
 import * as _ from 'lodash';
@@ -83,24 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //перемешивание
 
-  function shuffleCards(
-    array: {
-      tag: string;
-      cls: string;
-      content: (
-        | {
-            tag: string;
-            cls: string;
-            attrs: { 'data-id': string; width: string; src: string };
-          }
-        | {
-            tag: string;
-            cls: string[];
-            attrs: { width: string; src: string; value: string };
-          }
-      )[];
-    }[]
-  ) {
+  function shuffleCards(array: Template[]) {
     for (let i = array.length - 1; i >= 0; i--) {
       let randomIndex: number;
       randomIndex = Math.floor(Math.random() * (i + 1));
