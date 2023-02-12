@@ -3,6 +3,8 @@ import { Template, templateEngine } from './templateEngine';
 import './card-game.css';
 // eslint-disable-next-line no-unused-vars
 import * as _ from 'lodash';
+import { compareCards } from './cardsGameTeastFunc';
+
 
 const body = document.body;
 const startButton = document.querySelector('.sheet___btn');
@@ -103,7 +105,12 @@ function showingAndHidingCards() {
 
 //функция генерирования карт
 
-export function showCards(amount: number | undefined) {
+let cardsToWin = 0;
+let unflippedCardOne: Template, unflippedCardTwo: Template;
+let flippedCardsArray: Array<string> = [];
+
+
+function showCards(amount: number | undefined) {
   const allCardsContainer = document.createElement('section');
   if (amount === 3) {
     allCardsContainer.classList.add('cards-sheet');
@@ -127,8 +134,6 @@ export function showCards(amount: number | undefined) {
 
   //основная логика игры
 
-  let cardsToWin = 0;
-
   function winLosePage() {
     if (unflippedCardOne !== unflippedCardTwo) {
       setTimeout(() => {
@@ -141,8 +146,6 @@ export function showCards(amount: number | undefined) {
 
   const everyCard = document.querySelectorAll('.card__item-back');
 
-  let flippedCardsArray: Array<string> = [];
-
   function flippingCards(event: Event) {
     let card = event.target as HTMLElement;
 
@@ -153,20 +156,6 @@ export function showCards(amount: number | undefined) {
 
     compareCards(flippedCardsArray);
     winLosePage();
-  }
-
-  let unflippedCardOne: string, unflippedCardTwo: string;
-
-  function compareCards(array: string[]) {
-    if (array.length === 2) {
-      unflippedCardOne = array[0];
-      unflippedCardTwo = array[1];
-
-      if (unflippedCardOne === unflippedCardTwo) {
-        flippedCardsArray = [];
-        cardsToWin += 2;
-      }
-    }
   }
 
   everyCard.forEach((elem) => elem.addEventListener('click', flippingCards));
