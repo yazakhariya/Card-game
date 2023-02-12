@@ -3,8 +3,6 @@ import { Template, templateEngine } from './templateEngine';
 import './card-game.css';
 // eslint-disable-next-line no-unused-vars
 import * as _ from 'lodash';
-import { compareCards } from './cardsGameTeastFunc';
-
 
 const body = document.body;
 const startButton = document.querySelector('.sheet___btn');
@@ -109,6 +107,7 @@ let cardsToWin = 0;
 let unflippedCardOne: Template, unflippedCardTwo: Template;
 let flippedCardsArray: Array<string> = [];
 
+import { compareCards } from './cardsGameTeastFunc';
 
 function showCards(amount: number | undefined) {
   const allCardsContainer = document.createElement('section');

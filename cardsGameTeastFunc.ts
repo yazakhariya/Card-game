@@ -16,4 +16,5 @@ export function compareCards(array: Template[]) {
         cardsToWin += 2;
       }
     }
+    return array;
   }
