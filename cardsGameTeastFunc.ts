@@ -7,14 +7,14 @@ let unflippedCardOne: Template, unflippedCardTwo: Template;
 let flippedCardsArray: Array<string> = [];
 
 export function compareCards(array: Template[]) {
-    if (array.length === 2) {
-      unflippedCardOne = array[0];
-      unflippedCardTwo = array[1];
-  
-      if (unflippedCardOne === unflippedCardTwo) {
-        flippedCardsArray = [];
-        cardsToWin += 2;
-      }
+  if (array.length === 2) {
+    unflippedCardOne = array[0];
+    unflippedCardTwo = array[1];
+
+    if (unflippedCardOne === unflippedCardTwo) {
+      flippedCardsArray = [];
+      cardsToWin += 2;
     }
-    return array;
   }
+  return array;
+}

@@ -103,12 +103,6 @@ function showingAndHidingCards() {
 
 //функция генерирования карт
 
-let cardsToWin = 0;
-let unflippedCardOne: Template, unflippedCardTwo: Template;
-let flippedCardsArray: Array<string> = [];
-
-import { compareCards } from './cardsGameTeastFunc';
-
 function showCards(amount: number | undefined) {
   const allCardsContainer = document.createElement('section');
   if (amount === 3) {
@@ -141,6 +135,23 @@ function showCards(amount: number | undefined) {
     } else if (amount && cardsToWin === amount * 2) {
       winPage();
     }
+  }
+
+  let cardsToWin = 0;
+  let unflippedCardOne: Template, unflippedCardTwo: Template;
+  let flippedCardsArray: Array<string> = [];
+
+  function compareCards(array: Template[]) {
+    if (array.length === 2) {
+      unflippedCardOne = array[0];
+      unflippedCardTwo = array[1];
+
+      if (unflippedCardOne === unflippedCardTwo) {
+        flippedCardsArray = [];
+        cardsToWin += 2;
+      }
+    }
+    return array;
   }
 
   const everyCard = document.querySelectorAll('.card__item-back');
