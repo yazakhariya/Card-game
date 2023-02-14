@@ -21,6 +21,16 @@ body {
   height: 100vh;
 }
 
+.bodySheet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: StratosSkyeng;
+  background-color: #0080c1;
+  color: #0080c1;
+  height: 100vh;
+}
+
 .sheet {
   width: 480px;
   height: 459px;
