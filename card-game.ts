@@ -3,6 +3,7 @@ import { Template, templateEngine } from './templateEngine';
 import './card-game.css';
 // eslint-disable-next-line no-unused-vars
 import * as _ from 'lodash';
+import { shuffleCards } from './cardsGameTeastFunc';
 
 const body = document.body;
 const startButton = document.querySelector('.sheet___btn');
@@ -77,19 +78,6 @@ function generatingCardsEngine() {
     clearInterval(timeInterval);
     (generalDivForWrapperAndAllCardsContainer.innerHTML = ''), gamePage();
   });
-}
-
-//перемешивание
-
-function shuffleCards(array: Template[]) {
-  for (let i = array.length - 1; i >= 0; i--) {
-    let randomIndex: number;
-    randomIndex = Math.floor(Math.random() * (i + 1));
-    let itemAtIndex = array[randomIndex];
-    array[randomIndex] = array[i];
-    array[i] = itemAtIndex;
-  }
-  return array;
 }
 
 function showingAndHidingCards() {

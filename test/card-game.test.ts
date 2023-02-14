@@ -1,5 +1,5 @@
 import { test, expect } from '@jest/globals';
-import { compareCards } from '../cardsGameTeastFunc';
+import { shuffleCards } from '../cardsGameTeastFunc';
 import { Template } from '../templateEngine';
 
 
@@ -55,7 +55,7 @@ test('должно вернуть массив с двумя элементам�
       ],
   }
   ]
-  expect(compareCards(array)).toHaveLength(2);
+  expect(shuffleCards(array)).toHaveLength(2);
 });
 
 test('массивы не должны быть равны', () => {
@@ -139,5 +139,5 @@ test('массивы не должны быть равны', () => {
       ],
   }
 ]
-  expect(compareCards(array)).not.toEqual(secArray);
+  expect(shuffleCards(array)).not.toEqual(secArray);
 });

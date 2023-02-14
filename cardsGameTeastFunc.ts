@@ -1,20 +1,13 @@
 import { Template } from './templateEngine';
 
-// eslint-disable-next-line no-unused-vars
-let cardsToWin = 0;
-let unflippedCardOne: Template, unflippedCardTwo: Template;
-// eslint-disable-next-line no-unused-vars
-let flippedCardsArray: Array<string> = [];
-
-export function compareCards(array: Template[]) {
-  if (array.length === 2) {
-    unflippedCardOne = array[0];
-    unflippedCardTwo = array[1];
-
-    if (unflippedCardOne === unflippedCardTwo) {
-      flippedCardsArray = [];
-      cardsToWin += 2;
-    }
+//перемешивание
+export function shuffleCards(array: Template[]) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    let randomIndex: number;
+    randomIndex = Math.floor(Math.random() * (i + 1));
+    let itemAtIndex = array[randomIndex];
+    array[randomIndex] = array[i];
+    array[i] = itemAtIndex;
   }
   return array;
 }
