@@ -211,6 +211,7 @@ function showCards(amount: number | undefined) {
     startNewGameButton.classList.add('startNewGameButton');
     startNewGameButton.innerHTML = 'Играть снова';
     startNewGameButton.addEventListener('click', () => {
+      clearInterval(timeInterval);
       (generalDivForWrapperAndAllCardsContainer.innerHTML = ''), gamePage();
     });
     resultSheet.appendChild(startNewGameButton);
@@ -251,6 +252,7 @@ function showCards(amount: number | undefined) {
     startNewGameButton.classList.add('startNewGameButton');
     startNewGameButton.innerHTML = 'Играть снова';
     startNewGameButton.addEventListener('click', () => {
+      clearInterval(timeInterval);
       (generalDivForWrapperAndAllCardsContainer.innerHTML = ''), gamePage();
     });
     resultSheet.appendChild(startNewGameButton);
